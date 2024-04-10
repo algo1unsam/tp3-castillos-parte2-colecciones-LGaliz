@@ -78,10 +78,10 @@ object rolando {
 		poderBase += 1
 		artefactos.forEach({artefacto => artefacto.usar()})
 	}
-	
+
+	method poder() = poderBase + self.poderDeTodosLosArtefactos()
 	method posesiones() = self.artefactos() + castillo.artefactos()
 	method tiene(artefacto) = self.posesiones().contains(artefacto)	
-	method poder() = poderBase + self.poderDeTodosLosArtefactos()
 	method poderDeTodosLosArtefactos() = artefactos.sum({item => item.poder(self)}) 
 	method tieneArmaFatal(enemigo) = artefactos.any({artefacto => artefacto.poder(self)>enemigo.poder()})
 	method armaFatal(enemigo) = artefactos.find({artefacto => artefacto.poder(self)>enemigo.poder()})	
@@ -113,4 +113,22 @@ object eretia {
 	method enemigosVencibles(persona) = enemigos.filter({enemigo => enemigo.poder()<persona.poder()})
 	method moradasConquistables(persona) = self.enemigosVencibles(persona).map({item => item.morada()}).asSet()
 	method poderoso(persona) = enemigos.all({enemigo => enemigo.poder()<persona.poder()})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
